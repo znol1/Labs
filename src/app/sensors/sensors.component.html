@@ -1,0 +1,13 @@
+<ul>
+  <li *ngFor="let k of sensors; let i = index">
+    <span [class.online] = "k.online" [class.offline]="!k.online">
+    {{ k.name }}
+    </span>
+    <button (click)="remove(k.id)">&times;</button>
+  </li>
+  <li>
+    <input type ="text" [(ngModel)]="name" >
+    <input type = "checkbox" [(ngModel)]= "online" #check>
+    <button (click)="add(check)">Добавить</button>
+  </li>
+</ul>
