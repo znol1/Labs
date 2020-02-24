@@ -1,0 +1,18 @@
+<form [formGroup] = createForm>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="alert alert-info"><h1>Добавьте сотрудника или руководителя отдела</h1></div>
+    <label>Имя</label>
+    <input type="text" class="form-control" #workerNameInput formControlName = 'name' required>
+    <label>Отдел</label>
+    <input type="text" class="form-control" #workerRoleInput formControlName = 'role' required>
+    <label>Номер</label>
+    <input type="text" [textMask]="{mask: mask}" class="form-control"  formControlName = 'number'>
+    <br>
+    <button class="btn btn-primary btn-lg"
+            (click) = "onAddWorker()">Добавить сотрудника</button>
+    <button class="btn btn-primary btn-lg"
+            (click) = "onAddHeadWorker()">Добавить руководителя</button>
+  </div>
+</div>
+</form>
