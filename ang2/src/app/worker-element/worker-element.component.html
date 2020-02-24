@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+  <div class="panel-heading">{{worker.name}}</div>
+  <div class="panel-body">
+    <p>
+      <strong *ngIf="worker.type === 'сотрудник'">{{worker.role}}</strong>
+      <strong *ngIf="worker.type === 'руководитель'" style="color:RGBA(255,0,0,1)">{{worker.role}}</strong>
+      <br>
+      <label>изменить имя</label>
+      <input type="text" class="form-control" #editName>
+      <label>изменить отдел</label>
+      <input type="text" class="form-control" #editRole>
+      <button class="btn btn-primary btn-lg" (click) = "edit(editName, editRole)">Изменить</button>
+      <button  (click) = "delete(worker.id)" #del>&times;</button>
+    </p>
+  </div>
+</div>
