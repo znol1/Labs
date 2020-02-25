@@ -1,0 +1,23 @@
+<form [formGroup] = editForm (ngSubmit)="edit()">
+<div class="panel panel-default">
+  <div class="panel-body">
+    <p>
+      <strong>{{worker.name}}</strong>
+      <br>
+      <strong *ngIf="worker.type === 'сотрудник'">{{worker.role}}</strong>
+      <strong *ngIf="worker.type === 'руководитель'" style="color:RGBA(255,0,0,1)">{{worker.role}}</strong>
+      <br>
+      <strong>{{worker.number}}</strong>
+      <br>
+      <label>изменить имя</label>
+      <input type="text" class="form-control" #editName formControlName = 'name'>
+      <label>изменить отдел</label>
+      <input type="text" class="form-control" #editRole formControlName = 'role'>
+      <label>Номер</label>
+      <input type="text" [textMask]="{mask: mask}" class="form-control"  formControlName = 'number'>
+      <button type = "submit" class="btn btn-primary btn-lg" [disabled]="!editForm.valid">Изменить</button>
+      <button (click) = "delete(worker.id)" #del>&times;</button>
+    </p>
+  </div>
+</div>
+</form>

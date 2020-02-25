@@ -1,0 +1,20 @@
+<div class ="search">
+  <input type = "text" [(ngModel)]="string">
+</div>
+<div class="container">
+  <app-interface
+    (workerCreated)="onWorkerAdded($event)"
+    (headWorkerCreated)="onHeadWorkerAdded($event)"
+    (createWorker)="onServAdded($event)"></app-interface>
+    <!--Задаем оработчики событий для EventEmmitorов из компонента interface  -->
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-worker-element *ngFor="let workerElement of workerElements|search: string; let i = index"
+                          [worker]="workerElement"
+                          (delWorker)="deleteWorker($event)"
+                          (editWorker)="edWorker($event)"
+                          ></app-worker-element>
+    </div>
+  </div>
+</div>
